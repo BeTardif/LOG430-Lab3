@@ -1,6 +1,8 @@
 services:
   store_manager:
     build: .
+    env_file:       
+      - .env
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
@@ -26,7 +28,7 @@ services:
     networks:
       - labo03-network
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db-init:/docker-entrypoint-initdb.d
